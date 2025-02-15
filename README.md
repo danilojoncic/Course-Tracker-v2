@@ -1,6 +1,6 @@
 # Course-Tracker-v2
-Java full stack web app using Spring Boot and Vaadin FLow, all the sample data is per usual taken from the following TV Show: Blackadder Goes Forth
-Please not that the web app is utilized for my side-hustles. The idea is that the Course-Tracker can be used for tracking all sorts of the course-lesson-student-transaction type work. Be it programmings lessons adn tutorage or Sailing Instructions
+Java Full Stack app using Spring Boot and Vaadin FLow, all the sample data is per usual taken from the following TV Show: Blackadder Goes Forth.
+The idea is that the Course-Tracker can be used for tracking all sorts of the course-lesson-student-transaction type work. Be it programmings lessons adn tutorage or Sailing Instructions
 ### ReadME is WIP but the code is somewhat finalized
 
 
@@ -25,7 +25,8 @@ Please not that the web app is utilized for my side-hustles. The idea is that th
 ...
 
 ## Possible additions
-...
+- Testing
+- 
 
 ## Screenshots
 Home Page
