@@ -1,0 +1,65 @@
+GET http://localhost:8080/api/lesson
+Accept: application/json
+
+###
+GET http://localhost:8080/api/transaction
+Accept: application/json
+
+###
+GET http://localhost:8080/api/lesson/criteria?instructorNames=Pera
+Accept: application/json
+
+###
+POST http://localhost:8080/api/lesson/create
+Content-Type: application/json
+
+{
+  "title": "Matrix",
+  "courseName": "UUP",
+  "tags": [
+    "Semi-difficult"
+  ],
+  "instructors": [
+    "Pera",
+    "Steva"
+  ],
+  "createdAt": "2025-02-11"
+}
+
+###
+GET http://localhost:8080/api/instructor
+Accept: application/json
+
+###
+GET http://localhost:8080/api/lesson
+Accept: application/json
+
+###
+GET http://localhost:8080/api/course
+Accept: application/json
+
+###
+GET http://localhost:8080/api/course/paginated?page=1&size=2
+Accept: application/json
+
+###
+POST http://localhost:8080/api/course/create
+Content-Type: application/json
+
+{
+  "title": "Seventh Course",
+  "description": "Fine And Simple"
+}
+
+###
+DELETE http://localhost:8080/api/course/delete/1
+Accept: application/json
+
+###
+PUT http://localhost:8080/api/course/edit/2
+Content-Type: application/json
+
+{
+  "title": "blank",
+  "description": "Fine And Simple"
+}
