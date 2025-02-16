@@ -26,7 +26,7 @@ The idea is that the Course-Tracker can be used for tracking all sorts of the co
 
 ## Possible additions
 - Testing
-- 
+- Google Drive links to recorded lessons in the model, service and view layers
 
 ## Screenshots
 Home Page
