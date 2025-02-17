@@ -64,7 +64,7 @@ public class LessonService implements LessonAbs {
                         }))
                 .collect(Collectors.toSet());
 
-        Lesson lesson = new Lesson(dto.title(), dto.createdAt(), course, instructors, tags);
+        Lesson lesson = new Lesson(dto.title(), dto.createdAt(),dto.link(), course, instructors, tags);
         lessonRepository.save(lesson);
 
         return new ServiceResponse(201, new Message("Lesson has been successfully created!"));
@@ -125,6 +125,7 @@ public class LessonService implements LessonAbs {
                 .collect(Collectors.toSet());
 
         lesson.setCourse(course);
+        lesson.setLink(dto.link());
         lesson.setTitle(dto.title());
         lesson.setInstructors(instructors);
         lesson.setCreatedAt(dto.createdAt());

@@ -18,6 +18,7 @@ public class Lesson {
     @Column(unique = true)
     private String title;
     private LocalDate createdAt;
+    private String link;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "course_id", nullable = false)
@@ -39,9 +40,10 @@ public class Lesson {
     )
     private Set<Tag> tags = new HashSet<>();
 
-    public Lesson(String title, LocalDate createdAt, Course course, Set<Instructor> instructors, Set<Tag> tags) {
+    public Lesson(String title, LocalDate createdAt, String link, Course course, Set<Instructor> instructors, Set<Tag> tags) {
         this.title = title;
         this.createdAt = createdAt;
+        this.link = link;
         this.course = course;
         this.instructors = instructors;
         this.tags = tags;

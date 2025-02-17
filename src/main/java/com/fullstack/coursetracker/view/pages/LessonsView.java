@@ -48,7 +48,7 @@ public class LessonsView extends VerticalLayout {
         setSpacing(true);
 
 
-        grid.setColumns("id", "title", "createdAt");
+        grid.setColumns("id", "title", "createdAt","link");
         grid.addColumn(lesson -> lesson.getCourse().getTitle()).setHeader("Course");
         grid.addColumn(lesson -> lesson.getInstructors().stream()
                         .map(Instructor::getName)
@@ -88,6 +88,7 @@ public class LessonsView extends VerticalLayout {
         ComboBox<String> courseField = new ComboBox<>("Course");
         MultiSelectListBox<String> instructorsField = new MultiSelectListBox<>();
         MultiSelectListBox<String> tagsField = new MultiSelectListBox<>();
+        TextField linkField = new TextField("Link");
 
         List<String> courseOptions = new ArrayList<>();
         List<Course> courses = (List<Course>) courseService.getAllCourses().responseObject();
@@ -108,6 +109,7 @@ public class LessonsView extends VerticalLayout {
             CreateLesson createLesson = new CreateLesson(
                     titleField.getValue(),
                     courseField.getValue(),
+                    linkField.getValue().isEmpty() ? "NONE" : linkField.getValue(),
                     new ArrayList<>(tagsField.getValue()),
                     new ArrayList<>(instructorsField.getValue()),
                     createdAtField.getValue()
@@ -121,7 +123,7 @@ public class LessonsView extends VerticalLayout {
 
         Button cancelButton = new Button("Cancel", event -> dialog.close());
 
-        FormLayout form = new FormLayout(titleField, createdAtField, courseField, instructorsField, tagsField);
+        FormLayout form = new FormLayout(titleField, createdAtField, courseField,linkField, instructorsField, tagsField);
         dialog.add(form, new HorizontalLayout(saveButton, cancelButton));
         dialog.open();
     }
@@ -132,6 +134,8 @@ public class LessonsView extends VerticalLayout {
         ComboBox<String> courseField = new ComboBox<>("Course");
         MultiSelectListBox<String> instructorsField = new MultiSelectListBox<>();
         MultiSelectListBox<String> tagsField = new MultiSelectListBox<>();
+        TextField linkField = new TextField("Link");
+        linkField.setValue(lesson.getLink());
 
         List<String> courseOptions = new ArrayList<>();
         List<Course> courses = (List<Course>) courseService.getAllCourses().responseObject();
@@ -152,10 +156,12 @@ public class LessonsView extends VerticalLayout {
         instructorsField.setValue(lesson.getInstructors().stream().map(Instructor::getName).collect(Collectors.toSet()));
         tagsField.setValue(lesson.getTags().stream().map(Tag::getTitle).collect(Collectors.toSet()));
 
+
         Button saveButton = new Button("Save", e -> {
             CreateLesson createLesson = new CreateLesson(
                     titleField.getValue(),
                     courseField.getValue(),
+                    linkField.getValue().isEmpty() ? "NONE" : linkField.getValue(),
                     new ArrayList<>(tagsField.getValue()),
                     new ArrayList<>(instructorsField.getValue()),
                     createdAtField.getValue()
@@ -171,7 +177,7 @@ public class LessonsView extends VerticalLayout {
 
         Button cancelButton = new Button("Cancel", event -> dialog.close());
 
-        FormLayout form = new FormLayout(titleField, createdAtField, courseField, instructorsField, tagsField);
+        FormLayout form = new FormLayout(titleField, createdAtField, courseField,linkField, instructorsField, tagsField);
         dialog.add(form, new HorizontalLayout(saveButton, cancelButton));
         dialog.open();
     }
